@@ -1,0 +1,31 @@
+/*package whatever //do not write package name here */
+
+import java.io.*;
+import java.util.*;
+
+class GFG {
+    public static ArrayList<String> getss(String str)
+    {
+        if(str.length()==0)
+        {
+            ArrayList<String> base=new ArrayList<>();
+            base.add(" ");
+            return base;
+        }
+       char cc=str.charAt(0);
+        String ros=str.substring(1);
+        ArrayList<String> myresult=new ArrayList<>();
+        ArrayList<String> myrec=getss(ros);
+        for(int i=0;i<myrec.size();i++)
+        {
+          myresult.add(myrec.get(i));
+          myresult.add(cc+myrec.get(i));
+         }
+         return myresult;
+    }
+	public static void main (String[] args)
+	{
+	    String str="abc";
+		System.out.println(getss(str));
+	}
+}
